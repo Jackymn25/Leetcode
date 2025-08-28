@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>0001 两数之和 - 解题思路</title>
+  <style>
+    :root { --bg:#0f172a; --fg:#e5e7eb; --muted:#94a3b8; --card:#111827; --border:rgba(255,255,255,.08); --code-bg:#0b1220; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Helvetica,Arial;background:radial-gradient(1200px 600px at 10% -20%, rgba(20,184,166,.15), transparent),radial-gradient(1000px 500px at 90% 0, rgba(99,102,241,.12), transparent),var(--bg);color:var(--fg);line-height:1.7}
+    .container{max-width:920px;margin:48px auto;padding:0 20px}
+    .header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+    .badge{background:rgba(20,184,166,.15);color:#99f6e4;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-weight:600;letter-spacing:.3px}
+    .h1{font-size:clamp(26px,3vw,36px);font-weight:800;margin:8px 0 0}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid var(--border);border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card h2{font-size:18px;margin:0 0 10px;color:#a5b4fc}
+    .code{background:var(--code-bg);border:1px solid var(--border);border-radius:12px;padding:14px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:13.5px}
+    hr{border:none;border-top:1px dashed var(--border);margin:20px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+    .stat{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:12px}
+    .stat b{display:block;font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="badge">0001</span>
+      <h1 class="h1">两数之和（Two Sum） 解题思路</h1>
+    </div>
+
+    <div class="card">
+      <h2>题意</h2>
+      <p>给定整数数组 <code>nums</code> 与目标值 <code>target</code>，找出两个下标 <code>i, j</code>，使得 <code>nums[i] + nums[j] == target</code>（每个元素最多使用一次，且保证恰好一组解）。</p>
+    </div>
+
+    <div class="card">
+      <h2>思路</h2>
+      <ol>
+        <li>维护映射 <code>值 → 下标</code> 的表 <code>idx</code>。</li>
+        <li>遍历元素 <code>x = nums[i]</code>，计算补数 <code>need = target - x</code>。</li>
+        <li>若 <code>idx</code> 中已有 <code>need</code>，返回 <code>[idx[need], i]</code>；否则记录 <code>idx[x] = i</code>。</li>
+      </ol>
+      <div class="grid">
+        <div class="stat"><b>正确性</b>第二次遇到配对值时，第一次的下标已被记录，立即返回即可。</div>
+        <div class="stat"><b>复杂度</b>查找/插入均摊 O(1)，整体时间 O(n)，额外空间 O(n)。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>实现（C++）</h2>
+      <pre class="code"><code>#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+#include &lt;iostream&gt;
+
+class Solution {
+public:
+    std::vector&lt;int&gt; twoSum(std::vector&lt;int&gt;&amp; nums, int target) {
+        std::unordered_map&lt;int, int&gt; idx; // 值 → 下标
+        for (int i = 0; i &lt; (int)nums.size(); ++i) {
+            int need = target - nums[i];
+            if (idx.count(need)) return { idx[need], i };
+            idx[nums[i]] = i;
+        }
+        return {};
+    }
+};
+
+int main() {
+    std::vector&lt;int&gt; nums = {2, 7, 11, 15};
+    int target = 9;
+    auto ans = Solution().twoSum(nums, target);
+    std::cout &lt;&lt; ans[0] &lt;&lt; " " &lt;&lt; ans[1] &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+    </div>
+
+    <hr />
+    <p style="text-align:center;color:var(--muted)">© 0001 · Two Sum</p>
+  </div>
+</body>
+</html>

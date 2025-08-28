@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ID}} {{标题}} - 解题思路</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --fg: #e5e7eb;
+      --muted: #94a3b8;
+      --card: #111827;
+      --border: rgba(255,255,255,.08);
+      --code-bg: #0b1220;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, "PingFang SC", "Microsoft YaHei", Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 600px at 10% -20%, rgba(20,184,166,.15), transparent),
+        radial-gradient(1000px 500px at 90% 0, rgba(99,102,241,.12), transparent),
+        var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
+    }
+    .container { max-width: 920px; margin: 48px auto; padding: 0 20px; }
+    .header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+    .badge { background: rgba(20,184,166,.15); color: #99f6e4; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; font-weight: 600; letter-spacing: .3px; }
+    .h1 { font-size: clamp(26px, 3vw, 36px); font-weight: 800; margin: 8px 0 0; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin: 16px 0; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .card h2 { font-size: 18px; margin: 0 0 10px; color: #a5b4fc; }
+    .code { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 13.5px; }
+    hr { border: none; border-top: 1px dashed var(--border); margin: 20px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+    .stat { background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .stat b { display: block; font-size: 13px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="badge">{{ID}}</span>
+      <h1 class="h1">{{标题}} 解题思路</h1>
+    </div>
+
+    <div class="card">
+      <h2>题意</h2>
+      <p>{{题意描述}}</p>
+    </div>
+
+    <div class="card">
+      <h2>思路</h2>
+      <ol>
+        {{思路步骤}}
+      </ol>
+      <div class="grid">
+        <div class="stat"><b>正确性</b>{{正确性说明}}</div>
+        <div class="stat"><b>复杂度</b>{{复杂度说明}}</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>实现（C++）</h2>
+      <pre class="code"><code>{{代码实现}}</code></pre>
+    </div>
+
+    <hr />
+    <p style="text-align:center;color:var(--muted)">© {{ID}} · {{标题}}</p>
+  </div>
+</body>
+</html>
