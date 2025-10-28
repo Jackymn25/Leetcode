@@ -1,0 +1,67 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"E:/C_Lion/CLion 2025.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
+						"E:/C_Lion/CLion 2025.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
+						"E:/C_Lion/CLion 2025.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
+						"E:/C_Lion/CLion 2025.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+						"E:/C_Lion/CLion 2025.2/bin/mingw/include",
+						"E:/C_Lion/CLion 2025.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+						"E:/C_Lion/CLion 2025.2/bin/mingw/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : [],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : []
+				},
+				"path" : "E:/C_Lion/CLion 2025.2/bin/mingw/bin/g++.exe",
+				"version" : "13.1.0"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"m",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm",
+				"ccm",
+				"cxxm",
+				"c++m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "E:/C_Lion/CLion 2025.2/bin/mingw/bin/windres.exe"
+			},
+			"language" : "RC",
+			"sourceFileExtensions" : 
+			[
+				"rc",
+				"RC"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
